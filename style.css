@@ -19,15 +19,14 @@
     --spacing-xl: 60px;
 
     /* Font */
-    /* Đã đổi font chính sang Roboto (phổ biến) hoặc một font sans-serif hiện đại khác */
-    /* ... các biến màu sắc và khoảng cách giữ nguyên ... */
-    
-    /* Font Đề xuất 2 */
+    /* Đề xuất Font 2: Merriweather (body) và Playfair Display (heading) */
     --font-family-main: 'Merriweather', serif; 
     --font-family-heading: 'Playfair Display', serif;
+    
+    /* Lưu ý: Cần thêm đoạn sau vào thẻ <head> của HTML để load font:
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-/* ... */
-*/}
+    */
+}
 
 * {
     box-sizing: border-box;
@@ -39,13 +38,11 @@ body {
     font-family: var(--font-family-main);
     line-height: 1.6;
     color: var(--text-color-main);
+    /* Giữ nguyên màu nền nhẹ */
     background-color: var(--background-light);
     
-    /* === HỌA TIẾT NỀN CHO BODY === */
-    /* Họa tiết chấm bi nhẹ nhàng */
-    background-image: radial-gradient(#dcdcdc 1px, transparent 1px);
-    background-size: 20px 20px;
-    background-attachment: fixed; 
+    /* === HỌA TIẾT NỀN CHO BODY: ĐÃ CHUYỂN VỀ MÀU ĐƠN GIẢN === */
+    /* Các thuộc tính background-image, background-size, background-attachment đã được loại bỏ */
 }
 
 .container {
@@ -124,12 +121,12 @@ h2.section-title {
     margin: 0 auto var(--spacing-xl); 
     font-size: 2.2rem; 
     text-transform: uppercase;
-    display: table; /* Dùng display: table để căn giữa block tốt hơn khi dùng margin auto */
+    display: table; 
     padding-bottom: var(--spacing-sm);
     position: relative; 
     font-family: var(--font-family-heading); 
 
-    /* === HỌA TIẾT CHO TIÊU ĐỀ === */
+    /* === HỌA TIẾT CHO TIÊU ĐỀ (Gạch chân nổi bật) === */
     &::after {
         content: '';
         position: absolute;
@@ -154,7 +151,7 @@ h2.section-title {
     position: relative;
     overflow: hidden; 
 
-    /* === HỌA TIẾT NỀN CHO HERO BANNER === */
+    /* === HỌA TIẾT NỀN CHO HERO BANNER (Hình tròn tán sắc) === */
     &::before {
         content: '';
         position: absolute;
@@ -256,7 +253,7 @@ h2.section-title {
     padding: var(--spacing-md);
     background-color: #fff;
     position: relative;
-    /* === HỌA TIẾT CHO MEMBER INFO === */
+    /* === HỌA TIẾT CHO MEMBER INFO (Dải ngăn cách) === */
     &::before {
         content: '';
         position: absolute;
@@ -337,7 +334,7 @@ h2.section-title {
     justify-content: center; 
     position: relative;
 
-    /* === HỌA TIẾT CHO ACTIVITY CONTENT === */
+    /* === HỌA TIẾT CHO ACTIVITY CONTENT (Chấm tròn điểm nhấn) === */
     &::before {
         content: '●'; 
         position: absolute;
@@ -364,7 +361,7 @@ h2.section-title {
     font-style: italic;
 }
 
-/* Responsive Mobile */
+/* 5. Responsive Mobile */
 @media (max-width: 768px) {
     .container {
         width: 95%;
@@ -432,7 +429,7 @@ h2.section-title {
     }
 }
 
-/* Thêm hiệu ứng cho scrollbar (chỉ hoạt động trên một số trình duyệt) */
+/* 6. Thêm hiệu ứng cho scrollbar (chỉ hoạt động trên Webkit Browsers) */
 ::-webkit-scrollbar {
     width: 10px;
 }
