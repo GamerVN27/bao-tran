@@ -1,0 +1,450 @@
+/* style.css - Đã tối ưu hóa và chuyển font chữ */
+
+/* 1. Global Reset & Typography */
+:root {
+    /* Màu sắc */
+    --primary-color: #FFC0CB; /* Hồng chủ đạo - Light Pink */
+    --secondary-color: #e74c3c; /* Đỏ nổi bật/active - Bright Red */
+    --text-color-dark: #2c3e50; /* Văn bản đậm - Dark Blue */
+    --text-color-main: #333; /* Văn bản thường - Dark Gray */
+    --background-light: #f4f7f6; /* Nền nhẹ */
+    --background-pink-light: #FFF0F5; /* Nền hồng nhẹ */
+    --accent-pink: #DB7093; /* Hồng nhấn - Pale Violet Red */
+
+    /* Khoảng cách */
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --spacing-lg: 40px;
+    --spacing-xl: 60px;
+
+    /* Font */
+    /* Đã đổi font chính sang Roboto (phổ biến) hoặc một font sans-serif hiện đại khác */
+    /* ... các biến màu sắc và khoảng cách giữ nguyên ... */
+    
+    /* Font Đề xuất 2 */
+    --font-family-main: 'Merriweather', serif; 
+    --font-family-heading: 'Playfair Display', serif;
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+/* ... */
+*/}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family-main);
+    line-height: 1.6;
+    color: var(--text-color-main);
+    background-color: var(--background-light);
+    
+    /* === HỌA TIẾT NỀN CHO BODY === */
+    /* Họa tiết chấm bi nhẹ nhàng */
+    background-image: radial-gradient(#dcdcdc 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-attachment: fixed; 
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+/* 2. Header & Navigation (Menu điều hướng) */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15); 
+    position: sticky; 
+    top: 0;
+    z-index: 1000; 
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 2rem; 
+    font-family: var(--font-family-heading); 
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: var(--spacing-md);
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 4px;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-out; 
+}
+
+nav ul li a:hover, nav ul li a.active {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px); 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* 3. Footer */
+footer {
+    background-color: var(--text-color-dark);
+    color: white;
+    text-align: center;
+    padding: 1.5rem 0; 
+    margin-top: var(--spacing-xl);
+    font-size: 0.9rem;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+}
+
+/* 4. Nội dung chính (Layout chung) */
+main {
+    padding: var(--spacing-xl) 0;
+    min-height: 500px;
+}
+
+h2.section-title {
+    color: var(--text-color-dark);
+    margin: 0 auto var(--spacing-xl); 
+    font-size: 2.2rem; 
+    text-transform: uppercase;
+    display: table; /* Dùng display: table để căn giữa block tốt hơn khi dùng margin auto */
+    padding-bottom: var(--spacing-sm);
+    position: relative; 
+    font-family: var(--font-family-heading); 
+
+    /* === HỌA TIẾT CHO TIÊU ĐỀ === */
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120%; 
+        height: 4px;
+        background-color: var(--secondary-color);
+        border-radius: 2px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+}
+
+/* --- TRANG CHỦ (index.html) --- */
+.hero-banner {
+    background-color: var(--background-pink-light);
+    padding: var(--spacing-lg); 
+    border-radius: 12px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15); 
+    text-align: center;
+    position: relative;
+    overflow: hidden; 
+
+    /* === HỌA TIẾT NỀN CHO HERO BANNER === */
+    &::before {
+        content: '';
+        position: absolute;
+        top: -50px;
+        left: -50px;
+        width: 150px;
+        height: 150px;
+        background: radial-gradient(circle, rgba(255,192,203,0.3) 0%, transparent 70%);
+        border-radius: 50%;
+        z-index: 0;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -50px;
+        right: -50px;
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, rgba(255,192,203,0.2) 0%, transparent 70%);
+        border-radius: 50%;
+        z-index: 0;
+    }
+}
+
+.hero-banner > * {
+    position: relative; 
+    z-index: 1;
+}
+
+
+.class-photo img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 10px; 
+    margin-bottom: var(--spacing-md);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.slogan {
+    font-size: 1.8rem; 
+    color: var(--accent-pink);
+    font-style: italic;
+    font-weight: bold;
+    margin: var(--spacing-md) 0;
+    font-family: var(--font-family-heading); 
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
+
+.intro-text {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* --- TRANG THÀNH VIÊN (thanhvien.html) --- */
+.members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    gap: var(--spacing-lg); 
+}
+
+.member-card {
+    background: white;
+    border-radius: 10px; 
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.member-card:hover {
+    transform: translateY(-8px) scale(1.02); 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.member-img {
+    width: 100%;
+    aspect-ratio: 4 / 3; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0; 
+}
+ 
+.member-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+.member-card:hover .member-img img {
+    transform: scale(1.05); 
+}
+
+.member-info {
+    padding: var(--spacing-md);
+    background-color: #fff;
+    position: relative;
+    /* === HỌA TIẾT CHO MEMBER INFO === */
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50%;
+        height: 2px;
+        background-color: var(--primary-color);
+        border-radius: 1px;
+    }
+}
+
+.member-name {
+    font-size: 1.3rem; 
+    font-weight: bold;
+    color: var(--text-color-dark);
+    margin-bottom: 5px;
+    font-family: var(--font-family-heading); 
+}
+
+.member-role {
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-size: 1rem; 
+    letter-spacing: 0.5px;
+}
+
+/* --- TRANG HOẠT ĐỘNG (hoatdong.html) --- */
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl); 
+}
+
+.activity-item {
+    background: white;
+    display: flex;
+    border-radius: 12px; 
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.activity-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Đảo ngược thứ tự ảnh và nội dung cho mục chẵn */
+.activity-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.activity-img {
+    flex: 1; 
+    max-width: 350px; 
+    flex-shrink: 0;
+    aspect-ratio: 16 / 9; 
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ 
+.activity-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.activity-content {
+    padding: var(--spacing-lg); 
+    flex: 2;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    position: relative;
+
+    /* === HỌA TIẾT CHO ACTIVITY CONTENT === */
+    &::before {
+        content: '●'; 
+        position: absolute;
+        top: var(--spacing-sm);
+        left: var(--spacing-sm);
+        font-size: 1.5rem;
+        color: var(--primary-color);
+        opacity: 0.6;
+    }
+}
+
+.activity-content .activity-title {
+    font-size: 1.6rem; 
+    color: var(--text-color-dark);
+    margin-bottom: var(--spacing-sm);
+    font-family: var(--font-family-heading); 
+}
+
+.activity-date {
+    color: #7f8c8d;
+    font-size: 1rem;
+    margin-bottom: var(--spacing-md);
+    display: block;
+    font-style: italic;
+}
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .logo h1 {
+        margin-bottom: var(--spacing-sm);
+    }
+    nav ul {
+        margin-top: var(--spacing-md);
+        justify-content: center;
+        flex-wrap: wrap; 
+    }
+    nav ul li {
+        margin: 0 var(--spacing-sm) var(--spacing-xs); 
+    }
+    
+    h2.section-title {
+        font-size: 1.8rem;
+        margin-bottom: var(--spacing-lg);
+        &::after {
+            width: 100%; 
+        }
+    }
+
+    .hero-banner {
+        padding: var(--spacing-md);
+    }
+    .slogan {
+        font-size: 1.3rem;
+    }
+    .intro-text {
+        font-size: 1rem;
+    }
+
+    .members-grid {
+        grid-template-columns: 1fr; 
+    }
+
+    .activity-item {
+        flex-direction: column !important; 
+        border-radius: 8px; 
+    }
+    .activity-img {
+        width: 100%;
+        max-width: 100%;
+        height: 200px; 
+        aspect-ratio: unset; 
+    }
+    .activity-content {
+        padding: var(--spacing-md);
+    }
+    .activity-content .activity-title {
+        font-size: 1.3rem;
+    }
+    .activity-date {
+        font-size: 0.9rem;
+    }
+    .activity-content::before {
+        top: var(--spacing-sm);
+        left: var(--spacing-sm);
+    }
+}
+
+/* Thêm hiệu ứng cho scrollbar (chỉ hoạt động trên một số trình duyệt) */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--background-light);
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 5px;
+    border: 2px solid var(--background-light);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-pink);
+}
